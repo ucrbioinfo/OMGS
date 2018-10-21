@@ -54,14 +54,14 @@ Novo$Stitch offers two ways to input parameters for users as follow:
 (1) first way
 e.g. 
 
-$cd ./Novo_Stitch
+$cd ./OMGS
 
 $python ./scripts/main.py -x /home/stelo/BIONANO_in_progress/tools/RefAligner -i /home/weihua/cowpea/fastas_cowpea_eight.txt -o /home/weihua/cowpea/eight_stitch_loose_false_and_contained_BssSI -t BssSI -m /home/stelo/BIONANO_in_progress/vu_bsss1_102.cmap -p 32 -a 0 -b 0.2 -c 5000 -d 0.5 -e 0.8
 
 (2) second way  
 e.g.
 
-$cd ./Novo_Stitch
+$cd ./OMGS
 
 $python ./scripts/main.py -f ~/phytophthora/parameters.txt
 
@@ -89,19 +89,36 @@ Then in parameters.txt, the parameters are listed line by line as follows:
 
 -e 0.8
 
+For all the parameters about address, absolute paths are preferred. If you use relative paths, '.' and '..' always represent './OMGS' directory and its parent directory respectively, and '~' represents current user's repository.  
+
 
 -i: specify the fasta list file which lists the address of input fasta files line by line.  
 e.g. fasta_list.txt 
+
 /home/stelo/phytophthora/seven_2/seven_2.fasta  
+
 /home/weihua/canu.fasta  
+
 ./falcon.fasta  
+
 This parameter is required to be specified by users.   
+
+For all the parameters about address, absolute paths are preferred. If you use relative paths, '.' and '..' always represent './OMGS' directory and its parent directory respectively, and '~' represents current user's repository.  
 
 -o: specify the output dirctory which will contains all of the output files and intermediate files generated. This parameter is required to be specified by users.   
 
 -m: specify the optical map file. This parameter is required to be specified by users.   
 
--t: specify the restriction enzyme (e.g. BspQI). This parameter is required to be specified by users.   
+e.g. optmaps_for_cowpea.txt
+
+BspQI   /home/stelo/BIONANO_in_progress/vu_162_180K.cmap
+
+BssSI   /home/stelo/BIONANO_in_progress/vu_bsss1_102.cmap
+
+This parameter is required to be specified by users.   
+
+For all the parameters about address, absolute paths are preferred. If you use relative paths, '.' and '..' always represent './OMGS' directory and its parent directory respectively, and '~' represents current user's repository.  
+
 
 -p: specify the number of threads. The default value is "32".  
 
@@ -112,8 +129,7 @@ If you can run RefAligner in any directory of your machine by command like "RefA
 You should be able to find it after installing GLPK.  
 Same as Refaligner, you may also be able to use just "glpsol". The default value is "glpsol".  
 
--y: specify the address of blastn executable program on your machine. e.g. /home/weihua/tools/blastn
-Same as Refaligner, you may also be able to use just "blastn". The default value is "blastn".
+-y: specify the address of fa2cmap_multi.pl file. e.g. /home/weihua/OMGS/tools/fa2cmap_multi.pl
 
 
 2. performance related parameters
