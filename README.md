@@ -37,6 +37,7 @@ The users need to download this script from https://github.com/i5K-KINBRE-script
    
 
 6. python packages
+
 numpy, scipy, joblib
 
 
@@ -120,37 +121,22 @@ For all the parameters about address, absolute paths are preferred. If you use r
 -x: specify the address of Refaligner executable program on your machine. e.g. /home/weihua/tools/RefAligner
 If you can run RefAligner in any directory of your machine by command like "RefAligner [parameters]", then you can put "RefAligner" as this parameter after "-x". Anyway, this parameter should be the first term of the command your input when you run RefAligner on your machine. The default value is "RefAligner".   
 
+-y: specify the address of fa2cmap_multi.pl file. e.g. /home/weihua/OMGS/tools/fa2cmap_multi.pl
+
 -g: specify the address of glpsol executable prgram on your machine. e.g. /home/weihua/tools/glpsol  
 You should be able to find it after installing GLPK.  
 Same as Refaligner, you may also be able to use just "glpsol". The default value is "glpsol".  
 
--y: specify the address of fa2cmap_multi.pl file. e.g. /home/weihua/OMGS/tools/fa2cmap_multi.pl
-
 
 2. performance related parameters
 
--a: specify threshold_1 which is used when stitching overlapped contigs. When stitching, only the alignments whose length is larger than threshold_1 are considered to use. The default value is "3000".  
+-a: specify threshold_1 which is used in pre-processing. Only the alignments whose confidences from Refaligner are larger than threshold_1 are used. The default value is "15".  
 
--b: specify threshold_2 which is used when stitching overlapped contigs. threshold_2 is the threshold of ratio between difference of two contigs' coordinates on optical map and smaller contigs's length. When stitching, only when the ratio is smaller than threshold_2, the alignment is considered to use.    
-The default value is "0.1".  
+-b: specify threshold_2 which is used in false alignments removal. When building hypergraph, if the diffence between the two distance between two contigs' middle point coordinates on two optical map molecules is larger than threshold_2 of larger contig's length, one hyperedge is built on the four alignments. The default value is "0.2".  
 
--c: specify threshold_3 which is used in post-stitch processing. In post-processing, only the alignments whose length is larger than threshold_3 are considered to use. The default value is "10000".  
+-h: With "-h", OMGS uses statistical test to recognize the repetitive regions in optical moleculs rather than naive method. Statistical test might be able to get more accurate result but is much slower. 
 
--d: specify threshold_4 which is used in post-stitch processing.   
-threshold_4 is a threshold of ratio between length of two alignments' overlap and the length of smaller alignments. In post-processing, if the ratio is larger than threshold_4, we don't consider that alignment. The default value is "0.5".  
-
--e: specify threshold_5 which is used in post-stitch processing.   
-threshold_5 is a threshold for the ratio between the total length of parts of contig mapped to stitched contig and the total length of this contig. In post-stitching, if the ratio is smaller than threshold_5, we will cancel this stitch. The default value is "0.9".  
-
--h: specify threshold_6 which is used in pre-stitch processing. Only the alignments whose confidence from Refaligner is larger than threshold_6 are used. The default value is "25".  
-
--r: specify threshold_7 which is used in false alignments removal. When building hypergraph, if the diffence between the two distance between two contigs' middle point coordinates on two optical map molecules is larger than threshold_7 of larger contig's length, one hyperedge is built on the four alignments. The default value is "0.2".  
-
-As we said before, here we offer two sets of performance related parameters for users who cannot understand the meaning of them as follow:
-strict (default): -a 3000 -b 0.1 -c 10000 -d 0.5 -e 0.9 -h 25 -r 0.2
-loose: -a 0 -b 0.2 -c 5000 -d 0.5 -e 0.8 -h 25 -r 0.2
-The strict set is more conservative than loose set, which means it stitches less but has less chance to make mistakes than loose set. 
-
+-r: With "-r", OMGS uses statistical model to estimate gaps rather than naive method. Statistical model might be able to get more accurate result but is a little bit slower.
 
 
 
