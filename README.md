@@ -37,7 +37,6 @@ The users need to download this script from https://github.com/i5K-KINBRE-script
    
 
 6. python packages
-
 numpy, scipy, joblib
 
 
