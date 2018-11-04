@@ -144,9 +144,9 @@ Same as Refaligner, you may also be able to use just "glpsol". The default value
 
 There are two kinds of output files, stitched contigs file and log files. Stitched contigs file contains the final stitched contigs, while the log files contain the information which shows the whole process of running. All of the output files are stored in output directory specified by users. There are some other intermediate files inside, which could be ignored by users.
  
-1. stitched contigs file  
+1. output scaffolds file  
 
-final_stitched.fasta: It's a fasta file which contains the stitched contigs.  
+/core/scaffolds.fasta: It's a fasta file which contains the output scaffolds (including contigs not used).  
 
 2. log files and some intermediate files  
 
@@ -158,48 +158,23 @@ input.log: shows all the input fasta files
 
 (2) in each iteration_* directory
 
-alms_0_initial.log: all alignments 
+opt_(i)_alms_*.log: the alignments of ith optical map at different stage of pre-processing before merging all alignments
 
-alms_1_removed_lowconf.log: alignments after removing low quilty alignments
+alms_*.log: all alignments at different stage of pre-processing
 
-alms_2_removed_false_alms.log: alignments after removing false alignments
+newref_oldref.log: map from the new molecule (after mergeing the molecules of different optical maps) id to old molecule id
 
-alms_3_removed_contained_locally.log: alignments after removing contained alignments locally
+chimeric_pairs_(i).log: the candidate chimeric sites of ith optical map
 
-alms_4_unified.log: alignments after coordinates unification
+ugraph.log: association graph
 
-alms_5_removed_contained_globally.log: alignments after removing contained alignments globally
+forest.log: msf of association graph
 
-alms_6_mtp.log: alignments of mtp contigs
+ordergraph.txt: the order graph 
 
-ugraph_1.log: first association graph
+orders: the contig ids in each scaffold
 
-ugraph_2.log: second association graph
+gaps: the estimated gaps
 
-forest_1.log: msf of first association graph
-
-forest_2.log: msf of second association graph
-
-shifts.log: shifts information for coordinates unification
-
-alm_graph_edges.txt: edges of alignment graph
-
-alm_graph_vertices.txt: vertices of alignment graph
-
-cover.log: optimal vertex cover got for false alignments removal
-
-mtp_nodes.log: mtp contigs
-
-stitch_info.log: stitch information
-
-confidences.txt: the confidences of the contigs mapped to stitched contigs
-
-cancel_id_list.txt: the information of cancelled stitch
-
-input_contigs.fasta: input contigs for this iteration
-
-input_contigs_mtp.fasta: mtp contigs for this iteration
-
-adjusted_contigs_total.fasta: ouput stitched contigs for this iteration
-
+contig_oris.txt: the orientations of contigs
 
