@@ -36,7 +36,8 @@ In OMGS, we use one perl script "fa2cmap_multi.pl" of a scaffolding tool Irys-sc
 The users need to download this script from https://github.com/i5K-KINBRE-script-share/Irys-scaffolding/blob/e8e8f177dce2bf59421bd00c517ab7dc683e25d4/KSU_bioinfo_lab/assemble_XeonPhi/third-party/fa2cmap_multi.pl
    
 
-
+6. python packages
+numpy, scipy, joblib
 
 
 
@@ -56,38 +57,32 @@ e.g.
 
 $cd ./OMGS
 
-$python ./scripts/main.py -x /home/stelo/BIONANO_in_progress/tools/RefAligner -i /home/weihua/cowpea/fastas_cowpea_eight.txt -o /home/weihua/cowpea/eight_stitch_loose_false_and_contained_BssSI -t BssSI -m /home/stelo/BIONANO_in_progress/vu_bsss1_102.cmap -p 32 -a 0 -b 0.2 -c 5000 -d 0.5 -e 0.8
+$python ./scripts/main.py -x /home/stelo/BIONANO_in_progress/tools/RefAligner -y /home/weihua/Novo_Chimeric/tools/fa2cmap_multi.pl -i /home/weihua/cowpea/fastas_cowpea_real_2_quiver91x_high_outcov100.txt -o /home/weihua/cowpea/novo_scaffording_BspQIBssSI_q0_new -m /home/weihua/cowpea/optmaps_for_cowpea.txt -p 32 -a 10 -r 
 
 (2) second way  
 e.g.
 
 $cd ./OMGS
 
-$python ./scripts/main.py -f ~/phytophthora/parameters.txt
+$python ./scripts/main.py -f ~/cowpea/parameters.txt
 
 Then in parameters.txt, the parameters are listed line by line as follows:
 
--x /home/stelo/BIONANO_in_progress/tools/RefAligner
+-x /home/stelo/BIONANO_in_progress/tools/RefAligner 
 
--i /home/weihua/cowpea/fastas_cowpea_eight.txt
+-y /home/weihua/Novo_Chimeric/tools/fa2cmap_multi.pl 
 
--o /home/weihua/cowpea/eight_stitch_loose_false_and_contained_BssSI
+-i /home/weihua/cowpea/fastas_cowpea_real_2_quiver91x_high_outcov100.txt 
 
--t BssSI
+-o /home/weihua/cowpea/novo_scaffording_BspQIBssSI_q0_new 
 
--m /home/stelo/BIONANO_in_progress/vu_bsss1_102.cmap
+-m /home/weihua/cowpea/optmaps_for_cowpea.txt 
 
--p 32
+-p 32 
 
--a 0
+-a 10 
 
--b 0.2
-
--c 5000
-
--d 0.5
-
--e 0.8
+-r 
 
 For all the parameters about address, absolute paths are preferred. If you use relative paths, '.' and '..' always represent './OMGS' directory and its parent directory respectively, and '~' represents current user's repository.  
 
