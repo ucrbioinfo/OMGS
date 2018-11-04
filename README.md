@@ -36,7 +36,7 @@ In OMGS, we use one perl script "fa2cmap_multi.pl" of a scaffolding tool Irys-sc
 The users need to download this script from https://github.com/i5K-KINBRE-script-share/Irys-scaffolding/blob/e8e8f177dce2bf59421bd00c517ab7dc683e25d4/KSU_bioinfo_lab/assemble_XeonPhi/third-party/fa2cmap_multi.pl
    
 
-6. python packages
+6. python packages   
 numpy, scipy, joblib
 
 
